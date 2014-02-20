@@ -86,7 +86,7 @@ def main():
 		avg_latency = latencies.split('/')[1]
 		#matcher = re.compile("round-trip min/avg/max/stddev = (\d+.\d+)/(\d+.\d+)/(\d+.\d+)/(\d+.\d+)")
 		#ping_results = matcher.match(lines[-2]).groups()
-		avg_latency = ping_results[1]
+		#avg_latency = ping_results[1]
 		theoretical_bw_Mbps = 524.288 / float(avg_latency)
 		print 'Latency results:', lines[-2]
 		print 'Theoretical max bandwith with 64KB TCP Window: {} Mbps'.format(theoretical_bw_Mbps)
