@@ -82,8 +82,10 @@ def main():
 		print 'Testing Ping...'
 		p = subprocess.Popen(['ping', '-c', '10', endpoint], stdout = subprocess.PIPE)
 		lines = p.communicate()[0].split('\n')
-		matcher = re.compile("round-trip min/avg/max/stddev = (\d+.\d+)/(\d+.\d+)/(\d+.\d+)/(\d+.\d+)")
-		ping_results = matcher.match(lines[-2]).groups()
+		latencies = lines[-2].split()[3]
+		avg_latency = latencies.split('/')[1]
+		#matcher = re.compile("round-trip min/avg/max/stddev = (\d+.\d+)/(\d+.\d+)/(\d+.\d+)/(\d+.\d+)")
+		#ping_results = matcher.match(lines[-2]).groups()
 		avg_latency = ping_results[1]
 		theoretical_bw_Mbps = 524.288 / float(avg_latency)
 		print 'Latency results:', lines[-2]
