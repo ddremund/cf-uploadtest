@@ -71,7 +71,7 @@ def main():
 		uploaded = 0
 		while uploaded < total_bytes:
 			uploaded = cf.get_uploaded(uuid)
-			print '{}% completed - {} of {} bytes uploaded'.format(float(uploaded) * 100 / total_bytes, 
+			#print '{}% completed - {} of {} bytes uploaded'.format(float(uploaded) * 100 / total_bytes, 
 				uploaded, total_bytes)
 			time.sleep(.5)
 		elapsed_time = time.time() - start_time
