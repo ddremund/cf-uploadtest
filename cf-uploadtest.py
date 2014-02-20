@@ -79,8 +79,8 @@ def main():
 		MBps = total_bytes / (1024*1024) / elapsed_time
 		print 'Approximate Data rate: {} MBps | {} Mbps\n'.format(MBps, MBps * 8)
 
-		print 'Testing Ping...'
-		p = subprocess.Popen(['ping', '-c', '10', endpoint], stdout = subprocess.PIPE)
+		print 'Testing Ping x 20...'
+		p = subprocess.Popen(['ping', '-c', '20', endpoint], stdout = subprocess.PIPE)
 		lines = p.communicate()[0].split('\n')
 		latencies = lines[-2].split()[3]
 		avg_latency = latencies.split('/')[1]
