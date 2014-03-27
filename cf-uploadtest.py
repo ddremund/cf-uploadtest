@@ -29,12 +29,14 @@ def main():
 		'various Cloud Files regions.')
 	parser.add_argument('-c', '--container', 
 		default = pyrax.utils.random_ascii(), 
-		help="Name of container to use/create; random name is used if unspecified.")
+		help='Name of container to use/create; random name is used if unspecified.')
 	parser.add_argument('-u', '--user', help = 'Cloud Files username')
 	parser.add_argument('-p', '--password', help = 'Cloud Files Password')
 	parser.add_argument('-f', '--credsfile', help = 'Cloud credentials file in INI format',
 		default = "")
 	parser.add_argument('-d', '--directory', help = 'Directory to upload')
+	parser.add_argument('-p', '--pingcount', default = 20, 
+		help = 'Number of pings to do; default is 20')
 	args = parser.parse_args()
 
 	pyrax.set_setting("identity_type", "rackspace")
